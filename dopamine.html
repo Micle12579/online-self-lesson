@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>도파민 코드 읽기 자료</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#EDF0F4; --paper:#FFFFFF; --ink:#141C28; --muted:#5A6577; --line:#D3D9E2; --accent:#8A5300;
+  --display:"Black Han Sans","IBM Plex Sans KR",system-ui,sans-serif;
+  --read:"Gowun Batang","Noto Serif KR","AppleMyungjo",serif;
+  --ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10151D; --paper:#18202B; --ink:#E8EDF4; --muted:#9AA6B8; --line:#2C3746; --accent:#F2B65A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151D; --paper:#18202B; --ink:#E8EDF4; --muted:#9AA6B8; --line:#2C3746; --accent:#F2B65A; color-scheme:dark}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:17px;word-break:keep-all;overflow-wrap:break-word}
+.bar{position:sticky;top:0;z-index:5;background:var(--ink)}
+.bar .in{max-width:760px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:space-between;align-items:center}
+.bar a{color:var(--bg);text-decoration:none;font-size:.85em}
+.bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+article{max-width:760px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right,0px)) 72px max(16px,env(safe-area-inset-left,0px))}
+.eyebrow{font-size:.8em;letter-spacing:.08em;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2em,6vw,2.8em);line-height:1.25;margin:8px 0 10px;text-wrap:balance}
+.note{color:var(--muted);font-size:.9em;margin:0 0 36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.text{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:36px clamp(20px,5vw,48px)}
+.text p{font-family:var(--read);font-size:1.08em;line-height:2;margin:0 0 1.2em;max-width:62ch}
+.text p:last-child{margin-bottom:0}
+.text p.pull{font-weight:700;color:var(--accent)}
+.text hr{border:0;text-align:center;margin:2.2em 0;color:var(--muted)}
+.text hr::before{content:"· · ·";letter-spacing:.6em}
+.think{margin-top:32px;background:var(--ink);color:var(--bg);border-radius:12px;padding:22px 26px}
+.think h2{font-size:1.1em;margin:0 0 10px}
+.think ol{margin:0;padding-left:1.3em;line-height:1.8}
+.back{display:inline-block;margin-top:28px;color:var(--ink);font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px 18px}
+.back:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="bar"><div class="in"><a href="index.html">← 수업으로 돌아가기</a><a href="index.html#step-8">정리 단계로</a></div></div>
+<article>
+  <div class="eyebrow">더 생각해 보기 · 읽기 자료</div>
+  <h1>도파민 코드</h1>
+  <p class="note">『도파민 코드』 원문 발췌입니다. 띄어쓰기와 문장 부호만 바로잡았습니다.</p>
+
+  <div class="text">
+    <p>우리는 스마트폰을 무의식적으로 확인하는 행동을 하루에도 수십 번 반복한다. 알림이 울리지 않았는데도 화면을 켜고, 잠시만 본다는 생각으로 시작해 한참을 스크롤하게 되는 이유는 단순한 습관 때문이 아니다. 그 배경에는 도파민이라는 강력한 보상 신경전달물질이 작용하고 있다.</p>
+    <p>스마트폰은 인간 뇌의 보상 시스템을 정교하게 자극하는 도구다. 새로운 정보, 좋아요 알림, 메시지 수신 등은 모두 '예측할 수 없는 보상'이라는 공통점을 가진다. 뇌는 이런 보상에 특히 민감하게 반응하며, 그 예측 불가능성이 클수록 더 많은 도파민을 분비한다. 이는 도박이나 복권과 유사한 메커니즘으로, 뇌가 다음 보상을 기대하며 스마트폰에 손이 가도록 만든다.</p>
+    <p>SNS나 뉴스 앱에서 제공하는 끊임없는 피드와 정보는 일종의 '마이크로 보상'을 반복적으로 제공하며, 도파민 회로를 과도하게 자극한다. 스마트폰은 도파민 시스템을 정확히 겨냥한 설계의 산물이며, 우리가 스마트폰을 자주 확인하게 되는 것은 의지력의 문제가 아니라 생물학적 반응의 결과에 가깝다.</p>
+    <p>중요한 것은 이러한 메커니즘을 자각하고 의식적으로 행동을 조절하는 것이다. 우리는 뇌의 신경회로를 이해함으로써, 그 흐름에 끌려가는 소비자에서 스스로를 주도하는 사용자로 변화할 수 있다.</p>
+    <p>스마트폰을 향한 반복적인 행동은 단지 심심함을 해소하려는 것이 아니라, 뇌가 "무언가를 놓치고 있을지도 모른다"는 불안감, 즉 FOMO(Fear of Missing Out)를 느낄 때마다 이를 진정시키기 위해 행해지는 반사적인 반응이다. 이 반응은 단기적인 안도감을 준다.</p>
+    <p class="pull">기준선은 점점 높아진다.</p>
+    <p>특히, 스마트폰의 화면을 위로 스와이프하는 동작은 '무한 스크롤(infinite scroll)'이라는 기술적 장치와 결합되어 도파민 루프를 강화한다. 이 설계는 사용자가 멈추기 어려운 환경을 만들며, 뇌가 일시적인 만족을 반복해서 추구하도록 유도한다. 우리는 점점 더 짧고 자극적인 정보에 중독되고, 깊은 사고나 몰입은 점점 어려워진다.</p>
+    <p>또 하나 주목해야 할 점은, 스마트폰을 자주 사용하는 사람이 반드시 게으르거나 의지가 약한 것이 아니라는 사실이다. 스마트폰은 현대 기술이 인간의 본능과 심리를 얼마나 정밀하게 공략하고 있는지를 보여주는 대표적인 사례이며, 그 사용은 뇌의 자연스러운 반응일 뿐이다.</p>
+    <p>스마트폰 중독을 끊어내기 위한 첫걸음은 '왜 내가 이 행동을 반복하는가?'를 이해하는 데 있다. 도파민이라는 보상의 회로를 이해하고, 그것이 어떻게 자극되고 있는지를 자각하는 순간, 우리는 뇌의 노예가 아닌, 뇌의 주인이 될 수 있다.</p>
+    <hr>
+    <p>스마트폰을 자주 들여다보는 습관은 단순히 디지털 기기에 대한 의존을 넘어서, 인간의 '주의력'이라는 자원을 점점 침식시킨다. 뇌는 본래 한 번에 하나의 일에 집중하도록 설계되어 있지만, 스마트폰은 멀티태스킹을 유도하며 우리의 인지 시스템을 분산시킨다.</p>
+    <p>새로운 알림이 도착할 때마다 뇌는 순간적으로 주의를 전환하고, 이때마다 도파민이 분비되면서 '주의의 리워드화' 현상이 일어난다. 뇌는 더 빠르고 자극적인 주의 전환을 갈망하게 되고, 깊은 사고와 몰입은 점점 불가능해진다.</p>
+    <p>게다가 스마트폰은 인간관계의 방식마저도 바꾸어 놓는다. 오프라인에서의 대화나 감정 교류는 도파민보다 세로토닌, 옥시토신과 같은 신경물질이 더 활발하게 작용하지만, 디지털 상호작용은 빠르고 즉각적인 도파민 자극에 집중되어 있다. 이로 인해 사람들은 실시간 메시지와 좋아요, 댓글 등을 통해 즉각적인 반응을 받고자 하며, 이는 대인 관계의 깊이보다 반응의 속도에 가치를 두게 만든다. 스마트폰은 외로움을 해소해주는 도구처럼 보이지만, 역설적으로는 외로움을 더욱 가중시키는 시스템으로 기능하기도 한다.</p>
+    <p>이러한 도파민 기반의 습관은 나이를 가리지 않고 발생하며, 특히 성장기 청소년이나 자기통제력이 아직 완성되지 않은 연령대에서는 뇌 발달에 심각한 영향을 줄 수 있다.</p>
+    <p>도파민에 과도하게 노출된 뇌는 실제 세계에서의 성취나 관계, 학습에 흥미를 느끼기 어렵게 되며, 현실 회피적 성향이 강해질 수 있다.</p>
+    <p>스마트폰을 반복적으로 들여다보는 행위는 단순한 습관이 아닌, 뇌의 보상 회로가 설계된 방식과 그 회로를 공략한 기술의 정교한 전략 사이에서 생겨난 결과다. 우리는 이제 질문해야 한다. 내가 스마트폰을 사용하는가, 아니면 스마트폰이 나를 사용하는가? 이 질문에 정직하게 답하는 순간, 도파민과의 새로운 관계가 시작된다.</p>
+    <hr>
+    <p>중독과 열정은 외형상 매우 비슷해 보이지만, 그 본질에는 결정적인 차이가 존재한다.</p>
+    <p>두 경우 모두 몰입, 반복, 에너지의 집중이라는 공통된 특성을 보이지만, 중독은 통제력을 상실한 상태를 의미하고, 열정은 의식적 선택과 방향성을 가진 상태를 뜻한다. 즉, 중독은 뇌가 행동을 조절하지 못하는 상황이며, 열정은 뇌가 목표를 향해 스스로를 조율하는 과정이다.</p>
+    <p>도파민은 이 두 상태 모두에서 중요한 역할을 한다. 열정적인 사람의 뇌에서도 도파민이 활발하게 분비된다. 하지만 그 도파민은 목표 지향적이며, '의미'와 연결되어 있다.</p>
+    <p>반면 중독 상태의 도파민은 '즉각적인 쾌락'에만 반응하며, 반복적이고 충동적인 행동을 강화시킨다. 열정은 성장을 동반하지만, 중독은 고립과 퇴행을 불러온다.</p>
+    <p>예를 들어, 하루 10시간을 코드 작성에 몰입하는 개발자는 겉으로 보면 게임에 중독된 사람과 비슷해 보일 수 있다. 하지만 개발자는 자신이 추구하는 창의적 결과를 위해 도파민을 에너지로 삼고 있으며, 그 활동에서 성취감과 자아실현을 경험한다. 반면 게임 중독자는 스코어와 보상의 루프에 갇혀 자신을 잃어간다. 차이는 명확하다. 목표와 통제, 그리고 의미의 유무다.</p>
+    <p>중독은 보통 회피적 성향을 동반한다. 현실의 스트레스, 외로움, 불안에서 벗어나기 위해 도파민 자극에 의존하게 되며, 이는 일시적인 안정을 줄 수는 있지만, 뇌의 보상 시스템을 왜곡시킨다. 열정은 회피가 아니라 직면이다. 어려움과 충돌하되, 그 과정에서 스스로를 단련시키고 의미 있는 결과를 향해 나아간다.</p>
+    <p>중독과 열정의 차이는 '내가 그 행동을 지배하는가, 아니면 그 행동이 나를 지배하는가'라는 질문에 대한 답으로 결정된다. 중독은 도파민의 노예가 되는 것이고, 열정은 도파민을 연료로 삼는 것이다. 이 한 끗 차이를 이해하는 순간, 우리는 더 나은 선택을 할 수 있게 된다.</p>
+    <p>중독과 열정의 경계를 더욱 흐리게 만드는 것은, 사회가 종종 중독적인 행동을 '열정'으로 착각하거나 미화하기 때문이다. 밤새워 일하는 것을 '노력'으로 포장하고, 끊임없이 SNS를 관리하는 것을 '브랜딩'이라 부르며, 스스로를 혹사시키는 행위를 '헌신'이라 정당화한다. 그러나 그 안에 자기 통제력의 부재, 자아 정체성의 위축, 타인의 인정을 갈망하는 심리 등이 숨어 있다면 그것은 열정이 아니라 중독에 가까운 상태다.</p>
+    <p>도파민은 이 착각을 더욱 강화한다. 무엇인가에 몰두해 있을 때 뇌는 도파민을 분비하고, 그때 느껴지는 쾌감은 '나는 이걸 진심으로 좋아하고 있다'는 착오를 만들어낸다. 하지만 도파민은 '좋아하는 것'을 측정하지 않는다. 단지 '기대하는 것'에 반응할 뿐이다.</p>
+    <p>그 기대가 반복적으로 충족되지 않아도, 뇌는 여전히 도파민을 분비하며 그 대상에 집착하게 만든다. 이것이 중독이 열정보다 지속력은 약하지만 집요하게 반복되는 이유다.</p>
+    <p>열정은 방향성이 있다. 그것은 내가 되고자 하는 사람, 이루고자 하는 목표와 연결된다.</p>
+    <p>반면 중독은 방향성을 잃은 에너지다. 처음에는 열정처럼 시작되었을지라도, 시간이 지날수록 그 행위는 목표와 무관해지고, 오히려 나의 삶을 잠식하게 된다. 중요한 것은 '내가 왜 이 행동을 반복하는가'를 스스로에게 계속 묻는 것이다. 동기가 분명하고, 그 행동이 삶을 확장시키고 있다면 열정일 수 있다. 하지만 삶이 점점 더 고립되고, 내 통제 밖으로 벗어나고 있다면 그것은 중독일 가능성이 높다.</p>
+    <p>열정은 회복탄력성을 내포하고 있다. 실패했을 때, 좌절했을 때 멈추고 돌아보며 방향을 수정할 줄 안다. 반면 중독은 되돌아보지 못한다. 오히려 실패를 더 깊은 반복으로 덮으려 하며, 그 악순환은 자기 파괴적인 결과로 이어지기도 한다.</p>
+    <p>우리는 반드시 도파민의 작용을 이해한 위에서, 내 열정이 건강한지 아닌지를 점검해야 한다. 열정은 나를 키우고, 중독은 나를 갉아먹는다. 그 차이를 가르는 종이 한 장은 '의식'이라는 이름의 도구로만 분별할 수 있다.</p>
+    <p>중독과 열정의 경계를 더 명확히 하려면, 도파민이 단지 '쾌락의 물질'이 아니라 '예측과 학습의 물질'이라는 사실을 이해해야 한다.</p>
+    <hr>
+    <p>정보 과잉은 집중력의 분절화를 초래한다. 사람들은 깊이 있는 읽기나 생각을 지속하지 못하고 몇 초마다 스마트폰을 확인하거나 새로운 창을 열며 멀티태스킹에 몰두한다. 하지만 뇌는 진정한 멀티태스킹을 할 수 없기 때문에, 각 작업을 오가며 매번 전환비용(cognitive switching cost)을 치르게 된다.</p>
+    <p>과거보다 더 많은 정보를 접하고 있지만, 그것이 삶의 질이나 사고력 향상으로 이어지지 않는 이유는 도파민이 뇌를 과도하게 분산된 자극에 중독되게 만들었기 때문이다.</p>
+    <p>도파민의 흐름을 통제하며, 뇌가 스스로 정리하고 집중할 수 있는 환경을 제공해주는 것이 중요하다.</p>
+    <p>정보 과잉 시대를 살아가는 데 있어 진정한 경쟁력은 정보를 선택하고 걸러낼 수 있는 능력, 그리고 도파민의 흐름을 자각하고 조절할 수 있는 자기 통제력이다.</p>
+    <p>뇌는 단순한 데이터 저장소가 아니라, 정제와 연결, 의미화 과정을 통해 사고하는 유기체다. 이러한 본질을 회복하기 위해서는 깊이 있는 독서, 몰입의 루틴, 디지털 디톡스와 같은 전략을 통해 도파민 분비를 의식적으로 재설계해야 한다.</p>
+    <p>테크 기업이 져야 할 가장 중요한 윤리적 책임은 주의력 착취에 대한 자각과 절제다.</p>
+    <p>인간은 점점 더 스스로의 선택이 아닌 기계에 의해 유도된 행동을 반복하게 된다.</p>
+    <hr>
+    <p>천재의 뇌는 보상 예측 메커니즘이 특이하다. 대부분의 사람들은 외적 보상(돈, 칭찬) 등에 반응하지만 천재적인 인물들은 지적 호기심 그 자체가 도파민을 유발한다. 즉, 그들은 "왜 이럴까"라는 질문에 도달하는 순간, 뇌가 쾌감을 느끼고 더 깊이 파고들 수 있는 원동력을 스스로 만들어낸다. 이는 외부의 강제적 압박 없이도 자율적으로 몰입할 수 있는 능력으로 이어진다.</p>
+  </div>
+
+  <div class="think">
+    <h2>읽고 나서 생각해 보기</h2>
+    <ol>
+      <li>수업에서 본 미스매치 모형의 "알고리즘이 퍼뜨리는 정도"와 이 글의 "도파민을 겨냥한 설계"는 어떻게 연결될까?</li>
+      <li>요즘 내가 몰두하는 것 하나를 떠올려 보자. 열정에 가까운가, 중독에 가까운가? 그렇게 생각한 이유는?</li>
+      <li>내가 스마트폰을 사용하는가, 스마트폰이 나를 사용하는가?</li>
+    </ol>
+  </div>
+  <a class="back" href="index.html">← 수업으로 돌아가기</a>
+</article>
+</body>
+</html>
