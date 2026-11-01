@@ -6,45 +6,47 @@
 <title>도파민 코드 읽기 자료</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
-  --bg:#EDF0F4; --paper:#FFFFFF; --ink:#141C28; --muted:#5A6577; --line:#D3D9E2; --accent:#8A5300;
-  --display:"Black Han Sans","IBM Plex Sans KR",system-ui,sans-serif;
-  --read:"Gowun Batang","Noto Serif KR","AppleMyungjo",serif;
-  --ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --bg:#F2F4F6; --paper:#FFFFFF; --ink:#191F28; --sub:#4E5968; --muted:#8B95A1; --line:#E5E8EB; --accent:#3182F6; --accent-soft:#E8F3FF;
+  --body:"Pretendard Variable",Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#10151D; --paper:#18202B; --ink:#E8EDF4; --muted:#9AA6B8; --line:#2C3746; --accent:#F2B65A; color-scheme:dark}}
+  --bg:#101013; --paper:#1E1E24; --ink:#ECECEE; --sub:#B0B8C1; --muted:#7E8590; --line:#2C2C35; --accent:#4C97FF; --accent-soft:#1A2B45; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#10151D; --paper:#18202B; --ink:#E8EDF4; --muted:#9AA6B8; --line:#2C3746; --accent:#F2B65A; color-scheme:dark}
+  --bg:#101013; --paper:#1E1E24; --ink:#ECECEE; --sub:#B0B8C1; --muted:#7E8590; --line:#2C2C35; --accent:#4C97FF; --accent-soft:#1A2B45; color-scheme:dark}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:17px;word-break:keep-all;overflow-wrap:break-word}
-.bar{position:sticky;top:0;z-index:5;background:var(--ink)}
-.bar .in{max-width:760px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:space-between;align-items:center}
-.bar a{color:var(--bg);text-decoration:none;font-size:.85em}
-.bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-article{max-width:760px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right,0px)) 72px max(16px,env(safe-area-inset-left,0px))}
-.eyebrow{font-size:.8em;letter-spacing:.08em;color:var(--accent);font-weight:700}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2em,6vw,2.8em);line-height:1.25;margin:8px 0 10px;text-wrap:balance}
-.note{color:var(--muted);font-size:.9em;margin:0 0 36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
-.text{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:36px clamp(20px,5vw,48px)}
-.text p{font-family:var(--read);font-size:1.08em;line-height:2;margin:0 0 1.2em;max-width:62ch}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper)}
+.bar .in{max-width:720px;margin:0 auto;height:56px;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));display:flex;justify-content:space-between;align-items:center}
+.bar a{color:var(--sub);text-decoration:none;font-size:.9em;font-weight:600}
+.bar a+a{color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:10px;font-size:.85em}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+article{max-width:720px;margin:0 auto;padding:32px max(20px,env(safe-area-inset-right,0px)) 64px max(20px,env(safe-area-inset-left,0px))}
+.eyebrow{display:inline-block;font-size:.78em;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:8px}
+h1{font-weight:800;font-size:clamp(1.9em,6vw,2.4em);line-height:1.3;letter-spacing:-.03em;margin:14px 0 8px;text-wrap:balance}
+.note{color:var(--muted);font-size:.92em;margin:0 0 24px}
+.text{background:var(--paper);border-radius:20px;padding:32px clamp(20px,5vw,40px)}
+.text p{font-size:1.04em;line-height:1.95;margin:0 0 1.15em;color:var(--ink)}
 .text p:last-child{margin-bottom:0}
-.text p.pull{font-weight:700;color:var(--accent)}
-.text hr{border:0;text-align:center;margin:2.2em 0;color:var(--muted)}
-.text hr::before{content:"· · ·";letter-spacing:.6em}
-.think{margin-top:32px;background:var(--ink);color:var(--bg);border-radius:12px;padding:22px 26px}
-.think h2{font-size:1.1em;margin:0 0 10px}
-.think ol{margin:0;padding-left:1.3em;line-height:1.8}
-.back{display:inline-block;margin-top:28px;color:var(--ink);font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px 18px}
-.back:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.text p.pull{font-weight:700;font-size:1.15em;color:var(--accent);background:var(--accent-soft);border-radius:14px;padding:14px 18px;line-height:1.5}
+.text hr{border:0;height:1px;background:var(--line);margin:2em 0}
+.think{margin-top:12px;background:var(--paper);border-radius:20px;padding:28px clamp(20px,5vw,40px)}
+.think h2{font-size:1.3em;font-weight:700;letter-spacing:-.02em;margin:0 0 6px}
+.think p{color:var(--sub)}
+.think ol{margin:0;padding-left:0;list-style:none;counter-reset:q}
+.think ol[start="5"]{counter-reset:q 4}
+.think li{counter-increment:q;position:relative;padding:14px 0 14px 42px;line-height:1.7;border-top:1px solid var(--line)}
+.think li::before{content:counter(q);position:absolute;left:0;top:14px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.85em;display:grid;place-items:center}
+.back{display:block;text-align:center;margin-top:16px;color:#fff;font-weight:700;text-decoration:none;background:var(--accent);border-radius:16px;padding:17px}
 </style>
 </head>
 <body>
-<div class="bar"><div class="in"><a href="index.html">← 수업으로 돌아가기</a><a href="index.html#step-8">정리 단계로</a></div></div>
+<div class="bar"><div class="in"><a href="index.html">← 수업으로</a><a href="index.html#step-8">정리 단계로</a></div></div>
 <article>
   <div class="eyebrow">더 생각해 보기 · 읽기 자료</div>
   <h1>도파민 코드</h1>
@@ -97,21 +99,21 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(2em,6vw,2.8em);lin
 
   <div class="think">
     <h2>읽고 나서 생각해 보기</h2>
-    <p style="margin:0 0 12px;opacity:.8">다음 질문에 자신의 생각과 그 이유를 구체적인 사례와 함께 작성하세요.</p>
+    <p style="margin:0 0 14px">다음 질문에 자신의 생각과 그 이유를 구체적인 사례와 함께 작성하세요.</p>
     <ol>
       <li>온라인에서의 나와 현실에서의 나는 같은 사람일까? 다르다면 어떤 점에서 차이가 나타나며, 그 이유는 무엇이라고 생각하는가?</li>
       <li>현실에서는 하지 못할 말을 인터넷에서는 쉽게 하는 이유는 무엇일까? 익명성, 상대방의 표정을 볼 수 없는 환경 등을 고려하여 설명해 보자.</li>
       <li>악성 댓글을 작성하는 사람은 원래 공격적인 사람일까, 아니면 인터넷 환경이 공격적인 행동을 유발하는 것일까? 자신의 생각과 근거를 작성해 보자.</li>
       <li>인터넷에서 악성 댓글을 줄이기 위해서는 어떤 방법이 필요할까? 개인의 노력뿐 아니라 SNS 플랫폼의 기능이나 기술적인 해결 방안도 제안해 보자.</li>
     </ol>
-    <ol start="5" style="margin-top:14px">
+    <ol start="5">
       <li>우리는 왜 알림이 오지 않았는데도 스마트폰을 무의식적으로 확인할까? 글에서 설명하는 도파민과 예측할 수 없는 보상의 관계를 바탕으로 설명해 보자.</li>
       <li>SNS의 좋아요, 댓글, 짧은 영상 등은 우리의 행동과 감정에 어떤 영향을 미칠까? 자신의 스마트폰 사용 경험과 연결하여 작성해 보자.</li>
       <li>스마트폰을 계속 사용하게 되는 것은 개인의 의지력 문제일까, 아니면 사용자의 관심을 끌도록 설계된 기술의 영향일까? 어느 쪽의 영향이 더 크다고 생각하는지 근거를 들어 설명해 보자.</li>
       <li>『도파민 코드』에서 가장 인상 깊었던 내용은 무엇인가? 책을 읽고 새롭게 알게 된 점이나 생각이 달라진 부분을 정리하고, 앞으로 자신의 디지털 생활에서 실천하고 싶은 점을 작성해 보자.</li>
     </ol>
   </div>
-  <a class="back" href="index.html">← 수업으로 돌아가기</a>
+  <a class="back" href="index.html">수업으로 돌아가기</a>
 </article>
 </body>
 </html>
