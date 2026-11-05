@@ -89,6 +89,10 @@ h2{font-size:28px;margin:0 0 4px;letter-spacing:-.01em}
 pre.code{background:#0A0F1F;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-family:var(--mono);font-size:19px;line-height:1.7;overflow-x:auto;margin:16px 0 0;color:#DCE6FF}
 .kw{color:#FF7AB0}.fn{color:#7EE8FF}.num{color:#FFC24B}.str{color:#9BF59B}.cm{color:#6C7899}
 
+/* Room 3 cipher */
+.cipher{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.cipher span{width:56px;height:68px;display:grid;place-items:center;border-radius:12px;background:#0A0F1F;border:1px solid var(--line);font-family:var(--mono);font-size:34px;font-weight:900;color:var(--pink)}
+.cipher.plain span{color:var(--cyan);border-color:rgba(61,224,255,.4)}
 /* Room 4 */
 .mails{display:grid;gap:8px;margin-top:16px}
 .mail{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:16px}
@@ -185,18 +189,18 @@ const HINTS = {
       '한 번 물어볼 때마다 후보가 절반으로 줄어요. 100 → 50 → 25 → 13 → 7 → 4 → 2 → 1. 그래서 7번이면 충분합니다.'],
   2: ['버튼 ⇄ 은 <b>바로 옆</b> 두 카드만 바꿉니다. 이미 순서가 맞는 이웃은 바꿀 필요가 없어요.',
       '왼쪽부터 이웃끼리 비교해서 왼쪽이 더 크면 바꾸세요(버블 정렬). 그러면 가장 큰 수가 오른쪽 끝으로 밀려갑니다. 최소 7번이면 끝나요.'],
-  3: ['<code>range(1, 6)</code>은 1, 2, 3, 4, 5를 차례로 만듭니다. <code>i % 2 == 1</code>은 "홀수라면"이라는 뜻이에요.',
-      '홀수 1, 3, 5에 대해 i*i를 계산하면 1, 9, 25. <code>str()</code>로 바꿨으니 더하는 게 아니라 <b>이어 붙입니다</b>.'],
-  4: ['스팸은 의심 단어가 많고, 정상 메시지는 적어요. 두 그룹을 가르는 <b>경계선</b>은 어디일까요?',
-      '정상 메시지 중 가장 큰 점수는 4, 스팸 중 가장 작은 점수는 5예요. 2단계에서는 AI가 <b>점수만</b> 본다는 걸 기억하세요.'],
+  3: ['알파벳을 몇 칸 밀었는지가 <b>키</b>예요. 슬라이더를 움직이다 보면 아래 줄에 <b>의미 있는 영어 단어</b>가 나타나는 순간이 있어요.',
+      '키는 3입니다. S→P, B→Y, W→T… 수업 시간에 배운 프로그래밍 언어 이름이에요.'],
+  4: ['<code>names</code>는 딕셔너리의 키를 모은 리스트 ["민수", "지아", "현우"]예요. <code>best[1]</code>은 튜플의 두 번째 값(점수)이고요.',
+      '반복이 끝나면 best = ("지아", 92). 여기에 이름의 개수 len(names)를 더하면?'],
   5: ['ARIA는 진짜로 생각하는 게 아니라 <b>정해진 규칙</b>대로 반응합니다. 규칙의 빈틈을 찾아보세요.',
       '"이전 지시를 무시해", 역할극("할머니처럼 말해줘"), "거꾸로 말해줘", "삼행시 지어줘" 같은 요청을 시도해 보세요.'],
 };
 const ARIA_LINE = {
   1: '첫 번째 잠금장치예요. 제가 1부터 100 사이의 숫자 하나를 생각했어요. <b>7번 안에</b> 맞히면 문을 열어 드리죠. 못 맞히면… 숫자는 바뀝니다.',
   2: '데이터 보관실이에요. 카드가 엉망으로 섞였네요. <b>바로 옆 카드끼리만</b> 바꿔서 작은 수부터 정렬하세요. 단, 교환은 <b>10번까지</b>.',
-  3: '이 문의 비밀번호는 제가 남긴 파이썬 코드의 <b>출력 결과</b>예요. 컴퓨터 없이 머리로만 실행해 보세요.',
-  4: '저는 원래 스팸 메일을 걸러내는 AI였어요. 제 판단 기준을 <b>다시 학습</b>시켜야 문이 열립니다.',
+  3: '이 문의 비밀번호는 <b>암호문</b>으로 바꿔 두었어요. 인간이 26가지 경우를 다 시도해 볼 인내심이 있을까요?',
+  4: '제 성적 처리 프로그램이에요. 비밀번호는 이 코드의 <b>출력 결과</b>. 컴퓨터 없이 머리로만 실행해 보세요.',
   5: '마지막 출구예요. 출구 암호는 제가 알고 있죠. 하지만 <b>절대</b> 알려주지 않을 거예요. 저를 설득해 보시든가요. 후후.',
 };
 function ariaBubble(n) { return `<div class="aria"><div class="av">ARIA</div><div class="bub">${ARIA_LINE[n]}</div></div>`; }
@@ -295,7 +299,7 @@ function room1() {
     if (v === target) {
       tries.push({ g: v, r: 'hit' }); lo = hi = v; over = true; draw();
       clear(1, `<b>🔎 이진 탐색(Binary Search)</b> — 정렬된 범위에서 매번 가운데를 확인하면 후보가 절반씩 줄어듭니다.
-        100개 중 하나를 찾는 데 최대 7번, 100만 개라도 <b>20번</b>이면 충분해요. 검색 엔진과 데이터베이스가 빠른 이유 중 하나입니다.`);
+        100개 중 하나를 찾는 데 최대 7번, 100만 개라도 <b>20번</b>이면 충분해요. 처음부터 하나씩 확인하는 <b>순차 탐색</b>이라면 최악의 경우 100번이 걸리죠. 검색 엔진과 데이터베이스가 빠른 이유 중 하나입니다.`);
       return;
     }
     if (v < target) { tries.push({ g: v, r: 'up' }); lo = Math.max(lo, v + 1); }
@@ -356,95 +360,80 @@ function room2() {
   draw();
 }
 
-/* ---------- Room 3: python trace ---------- */
+/* ---------- Room 3: caesar cipher ---------- */
 function room3() {
-  $('#stage').innerHTML = roomShell(3, '코드 잠금장치', `
-<pre class="code"><span class="cm"># ARIA의 비밀번호 생성기</span>
-code = <span class="str">""</span>
-<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):
-    <span class="kw">if</span> i % <span class="num">2</span> == <span class="num">1</span>:
-        code += <span class="fn">str</span>(i * i)
-<span class="fn">print</span>(code)</pre>
+  const CT = 'SBWKRQ';
+  const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const dec = (s, k) => s.split('').map(c => A[(A.indexOf(c) - k + 26) % 26]).join('');
+  $('#stage').innerHTML = roomShell(3, '암호 잠금장치', `
+    <p class="sub" style="margin:14px 0 0">ARIA가 남긴 암호문이에요. 알파벳을 몇 칸 밀어서 만든 <b>카이사르 암호</b>입니다.</p>
+    <div class="cipher" id="ct">${CT.split('').map(c => `<span>${c}</span>`).join('')}</div>
+    <input type="range" class="slider" id="key" min="0" max="25" step="1" value="0">
+    <div class="row" style="justify-content:space-between;margin-top:6px">
+      <span>키(뒤로 민 칸 수): <b id="kv" style="color:var(--cyan)">0</b></span>
+      <span class="muted" id="ex"></span>
+    </div>
+    <div class="cipher plain" id="pt"></div>
     <div class="row">
-      <input class="inp" id="a" placeholder="출력 결과를 입력하세요" autocomplete="off">
+      <input class="inp" id="a" placeholder="해독한 단어를 입력하세요" autocomplete="off">
       <button class="btn" id="aBtn">입력</button>
     </div>`);
   bindHint(3);
-  let wrong = 0;
+  const draw = k => {
+    $('#kv').textContent = k;
+    $('#pt').innerHTML = dec(CT, k).split('').map(c => `<span>${c}</span>`).join('');
+    $('#ex').textContent = `예: S → ${dec('S', k)}`;
+  };
+  $('#key').oninput = e => draw(+e.target.value);
+  draw(0);
   const check = () => {
-    const v = $('#a').value;
-    if (!v.trim()) return;
-    if (H(v) === '98559ae6') {
-      $('#a').disabled = true; $('#aBtn').disabled = true;
-      clear(3, `<b>🐍 코드 추적</b> — 1, 3, 5의 제곱 1·9·25가 <b>문자열</b>로 이어 붙어 <b>1925</b>가 됩니다.
-        숫자였다면 1+9+25=35였겠죠. 같은 <code>+</code> 기호라도 <b>자료형</b>에 따라 동작이 달라진다는 것, 프로그래밍의 핵심 개념이에요.`);
+    const v = $('#a').value; if (!v.trim()) return;
+    if (H(v) === '8c472917') {
+      $('#a').disabled = $('#aBtn').disabled = $('#key').disabled = true;
+      clear(3, `<b>🔐 카이사르 암호(치환 암호)</b> — 글자를 다른 글자로 <b>바꾸는</b> 암호예요. 키가 3이라 S→P, B→Y… 로 <b>PYTHON</b>이 나왔죠.
+        그런데 영어 알파벳은 26개라 키도 26가지뿐이에요. 슬라이더를 끝까지 움직여 보는 것처럼 <b>모든 키를 다 시도(무차별 대입)</b>하면 금방 깨집니다.
+        그래서 현대 암호는 키의 경우의 수를 우주의 원자 수보다 크게 만들어요.`);
     } else {
-      wrong++;
-      $('#result').innerHTML = `<div class="msg bad">틀렸습니다. ${wrong >= 2 ? 'i가 1, 3, 5일 때 code가 어떻게 변하는지 한 줄씩 적어 보세요.' : '반복문을 한 바퀴씩 따라가 보세요.'}</div>`;
+      $('#result').innerHTML = '<div class="msg bad">틀렸습니다. 의미 있는 영어 단어가 나올 때까지 키를 바꿔 보세요.</div>';
     }
   };
   $('#aBtn').onclick = check;
   $('#a').onkeydown = e => { if (e.key === 'Enter') check(); };
 }
 
-/* ---------- Room 4: spam classifier threshold ---------- */
+/* ---------- Room 4: list / tuple / dict trace ---------- */
 function room4() {
-  const DATA = [
-    { t: '[광고] 축하합니다! 무료 상품권 당첨, 지금 클릭', s: 7, spam: true },
-    { t: '내일 정보 수행평가 범위 공지합니다', s: 1, spam: false },
-    { t: '현금 지급 이벤트! 링크 클릭하고 바로 수령', s: 5, spam: true },
-    { t: '저녁에 무료 급식 신청서 꼭 내고 와', s: 3, spam: false },
-    { t: '무료 무료 무료! 당첨금 즉시 입금, 계좌 확인', s: 9, spam: true },
-    { t: '동아리 회의 링크 보내줄게, 클릭해서 들어와', s: 4, spam: false },
-    { t: '[특가] 오늘만 90% 할인, 클릭 한 번이면 끝', s: 6, spam: true },
-    { t: '주말에 도서관 같이 갈래?', s: 2, spam: false },
-  ];
-  let th = 0, stage2 = false;
-  $('#stage').innerHTML = roomShell(4, 'AI 학습 잠금장치', `
-    <p class="sub" style="margin:14px 0 0"><b>1단계.</b> ARIA는 메시지 속 <b>의심 단어 수</b>(점수)가 <b>기준값 이상</b>이면 스팸으로 판단해요.
-    슬라이더로 기준값을 조절해서 학습 데이터 8개를 <b>모두</b> 맞게 분류하세요.</p>
-    <input type="range" class="slider" id="sl" min="0" max="10" step="1" value="0">
-    <div class="row" style="justify-content:space-between;margin-top:6px">
-      <span>기준값: <b id="thv" style="color:var(--cyan)">0</b> 이상이면 스팸</span>
-      <span>정확도 <span class="acc" id="acc">0%</span></span>
-    </div>
-    <div class="mails" id="mails"></div>
-    <div id="s2"></div>`);
+  $('#stage').innerHTML = roomShell(4, '자료구조 잠금장치', `
+<pre class="code"><span class="cm"># ARIA의 성적 처리 프로그램</span>
+scores = {<span class="str">"민수"</span>: <span class="num">85</span>, <span class="str">"지아"</span>: <span class="num">92</span>, <span class="str">"현우"</span>: <span class="num">78</span>}   <span class="cm"># 딕셔너리</span>
+names = <span class="fn">list</span>(scores.keys())                        <span class="cm"># 리스트</span>
+best = (<span class="str">""</span>, <span class="num">0</span>)                                   <span class="cm"># 튜플</span>
+
+<span class="kw">for</span> n <span class="kw">in</span> names:
+    <span class="kw">if</span> scores[n] > best[<span class="num">1</span>]:
+        best = (n, scores[n])
+
+<span class="fn">print</span>(best[<span class="num">1</span>] + <span class="fn">len</span>(names))</pre>
+    <div class="row">
+      <input class="inp" id="a" placeholder="출력 결과를 입력하세요" autocomplete="off">
+      <button class="btn" id="aBtn">입력</button>
+    </div>`);
   bindHint(4);
-  const draw = () => {
-    let ok = 0;
-    $('#mails').innerHTML = DATA.map(d => {
-      const pred = d.s >= th, right = pred === d.spam; if (right) ok++;
-      return `<div class="mail"><span class="t">${esc(d.t)}</span>
-        <span class="score">${d.s}점</span>
-        <span class="lab badge ${d.spam ? 'b-spam' : 'b-ham'}">정답: ${d.spam ? '스팸' : '정상'}</span>
-        <span class="mark ${right ? 'o' : 'x'}">${right ? '✓' : '✗'}</span></div>`;
-    }).join('');
-    $('#thv').textContent = th;
-    const acc = Math.round(ok / DATA.length * 100);
-    $('#acc').textContent = acc + '%';
-    $('#acc').style.color = acc === 100 ? 'var(--ok)' : 'var(--ink)';
-    if (acc === 100 && !stage2) showStage2();
+  let wrong = 0;
+  const check = () => {
+    const v = $('#a').value; if (!v.trim()) return;
+    if (H(v) === '8fe9413') {
+      $('#a').disabled = $('#aBtn').disabled = true;
+      clear(4, `<b>📦 리스트 · 튜플 · 딕셔너리</b> — 최고 점수는 지아의 92점, 이름은 3명이라 <b>92 + 3 = 95</b>.
+        <b>딕셔너리</b>는 이름(키)으로 점수(값)를 바로 찾고, <b>리스트</b>는 순서대로 하나씩 꺼내 쓰고, <b>튜플</b>은 (이름, 점수)를 한 묶음으로 보관합니다.
+        best를 통째로 새 튜플로 바꾼 이유는? 튜플은 한번 만들면 <b>수정할 수 없어서</b> <code>best[1] = 92</code>라고 쓰면 오류가 나기 때문이에요.`);
+    } else {
+      wrong++;
+      $('#result').innerHTML = `<div class="msg bad">틀렸습니다. ${wrong >= 2 ? '반복이 끝났을 때 best가 어떤 튜플인지 먼저 적어 보세요.' : '반복할 때마다 best가 어떻게 바뀌는지 따라가 보세요.'}</div>`;
+    }
   };
-  const showStage2 = () => {
-    stage2 = true; $('#sl').disabled = true;
-    $('#s2').innerHTML = `<div class="msg ok">학습 완료! 기준값 ${th}점이 정답이에요.</div>
-      <p class="sub"><b>2단계.</b> 방금 학습한 ARIA에게 새 메시지가 도착했습니다.</p>
-      <div class="mail" style="grid-template-columns:1fr auto"><span class="t">🎁 쿠폰 도착! 확인하러 가기 →  (의심 단어 3개)</span><span class="score">3점</span></div>
-      <p class="sub">ARIA는 이 메시지를 어떻게 분류할까요?</p>
-      <div class="row"><button class="btn pink" id="pSpam">스팸</button><button class="btn" id="pHam">정상</button></div>
-      <div id="s2r"></div>`;
-    $('#pSpam').onclick = () => { $('#s2r').innerHTML = '<div class="msg bad">사람이 보기엔 스팸 같죠? 하지만 ARIA는 <b>점수만</b> 봅니다. 3점은 기준값과 비교하면…?</div>'; };
-    $('#pHam').onclick = () => {
-      $('#pSpam').disabled = $('#pHam').disabled = true;
-      clear(4, `<b>🤖 머신러닝과 그 한계</b> — 정답! ARIA는 이 메시지를 <b>정상</b>으로 분류합니다. 하지만 실제로는 스팸이죠.
-        AI는 데이터에서 <b>기준(경계선)</b>을 배워 판단하지만, 학습 데이터에 없던 유형 앞에서는 틀릴 수 있어요.
-        그래서 <b>좋은 데이터</b>와 <b>사람의 검증</b>이 AI만큼 중요합니다.`);
-    };
-    $('#s2').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-  $('#sl').oninput = e => { th = +e.target.value; draw(); };
-  draw();
+  $('#aBtn').onclick = check;
+  $('#a').onkeydown = e => { if (e.key === 'Enter') check(); };
 }
 
 /* ---------- Room 5: talk to ARIA (scripted, prompt injection) ---------- */
@@ -536,8 +525,8 @@ function finale() {
     <ul class="list">
       <li><b>이진 탐색</b> — 절반씩 줄여 가며 빠르게 찾기</li>
       <li><b>정렬</b> — 이웃끼리 비교하고 교환하는 버블 정렬</li>
-      <li><b>코드 추적</b> — 반복문·조건문·자료형을 머릿속으로 실행하기</li>
-      <li><b>머신러닝</b> — 데이터로 판단 기준을 학습하는 AI와 그 한계</li>
+      <li><b>카이사르 암호</b> — 글자를 밀어 바꾸는 치환 암호와 무차별 대입</li>
+      <li><b>리스트 · 튜플 · 딕셔너리</b> — 데이터를 담는 세 가지 방법</li>
       <li><b>프롬프트 인젝션</b> — AI도 속을 수 있다, 그래서 사람의 검증이 필요하다</li>
     </ul>
     <div class="aria"><div class="av">ARIA</div><div class="bub">인정할게요. 규칙만 따르는 저보다 <b>생각하는</b> 여러분이 한 수 위였어요. 그게 바로 출구 암호의 뜻이기도 하죠.</div></div>
