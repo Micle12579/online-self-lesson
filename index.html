@@ -239,7 +239,7 @@ input[type=range]{width:100%;accent-color:var(--dis);height:24px}
     </div>
     <p class="claim">어떤 네티즌의 주장: <b>"사람은 오프라인 자아와 인터넷 자아가 다르다. 현실에선 나쁜 말도 못 하는 사람이 인터넷에선 악플을 단다."</b></p>
     <div class="pick">
-      <div class="pq">지금 내 생각은? 하나를 골라 두세요. 마지막에 다시 묻습니다.</div>
+      <div class="pq">지금 내 생각은? 하나를 골라 두세요.</div>
       <div class="pickrow" data-key="first">
         <button type="button" class="pbtn a" data-val="a" aria-pressed="false"><span class="tag sit">관점 A</span><span class="q">맞다. 인터넷 환경이 사람을 바꾼다.</span></button>
         <button type="button" class="pbtn b" data-val="b" aria-pressed="false"><span class="tag dis">관점 B</span><span class="q">아니다. 원래 그런 사람이 인터넷에서 드러날 뿐이다.</span></button>
@@ -422,51 +422,6 @@ input[type=range]{width:100%;accent-color:var(--dis);height:24px}
   </div>
 </section>
 
-<!-- 8 -->
-<section class="step" id="step-8" data-name="정리">
-  <div class="eyebrow"><span class="num">정리</span></div>
-  <h2>그래서, 그 네티즌의 주장은?</h2>
-  <div class="body">
-    <div class="sum">
-      <div class="col a"><h3>맞는 부분</h3><p>인터넷 환경, 특히 상대의 얼굴을 보지 못하는 것은 실제로 억제를 약하게 만든다.</p></div>
-      <div class="mid" aria-hidden="true">+</div>
-      <div class="col b"><h3>틀린 부분</h3><p>착한 사람이 완전히 다른 사람이 되기보다는, 원래 성향이 증폭되고 공격적인 소수가 과대 대표된다.</p></div>
-    </div>
-    <p class="verdict"><b>결론:</b> 그 주장은 <b>절반만 맞다.</b> 인터넷은 우리를 바꾸기도 하지만, 그보다 더 자주 원래 모습을 크게 보여 준다.</p>
-
-    <div class="pick">
-      <div class="pq">다시 묻습니다. 지금 내 생각은?</div>
-      <div class="pickrow" data-key="second">
-        <button type="button" class="pbtn a" data-val="a" aria-pressed="false"><span class="tag sit">관점 A</span><span class="q">인터넷 환경이 사람을 바꾼다.</span></button>
-        <button type="button" class="pbtn b" data-val="b" aria-pressed="false"><span class="tag dis">관점 B</span><span class="q">원래 그런 사람이 드러날 뿐이다.</span></button>
-      </div>
-      <p class="pnote" id="pnote"></p>
-    </div>
-
-    <div class="quiz" id="quiz"></div>
-    <div class="score" id="score"></div>
-
-    <div class="ticket">
-      <h3>한 문장으로 정리하기</h3>
-      <ol>
-        <li>오늘 배운 연구 중 가장 인상 깊은 것 하나와 그 이유</li>
-        <li>댓글을 쓰기 전에 떠올릴 질문 하나 (예: "이 사람 얼굴을 보고도 이렇게 말할까?")</li>
-      </ol>
-    </div>
-
-    <a class="nextread" href="dopamine.html"><span>더 생각해 보기 · 『도파민 코드』 읽기 자료</span><span class="go">읽으러 가기 →</span></a>
-
-    <div class="refs">
-      <b>더 읽어 보기</b>
-      <ul>
-        <li>Suler, J. (2004). The Online Disinhibition Effect. <i>CyberPsychology &amp; Behavior</i>.</li>
-        <li>Cheng, J. 외 (2017). Anyone Can Become a Troll. <i>CSCW</i>.</li>
-        <li>Bor, A. &amp; Petersen, M. B. (2022). The Psychology of Online Political Hostility. <i>American Political Science Review</i>.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <div class="pager">
   <button type="button" id="prev">이전</button>
   <button type="button" id="next" class="next">다음 →</button>
@@ -486,14 +441,14 @@ input[type=range]{width:100%;accent-color:var(--dis);height:24px}
     [...dots.children].forEach((d,j)=>{d.classList.toggle('now',j===cur);d.classList.toggle('done',j<cur);});
     count.textContent=(cur+1)+' / '+N;
     document.getElementById('prev').disabled=cur===0;
-    const nx=document.getElementById('next');nx.disabled=cur===N-1;
-    nx.textContent=cur<N-1?'다음 · '+steps[cur+1].dataset.name:'다음';
+    const nx=document.getElementById('next');
+    nx.textContent=cur<N-1?'다음 · '+steps[cur+1].dataset.name:'읽기 자료 보기';
     if(scroll){window.scrollTo(0,0);requestAnimationFrame(()=>window.scrollTo(0,0));}
   }
   function fromHash(){const m=location.hash.match(/^#step-(\d+)$/);show(m?+m[1]-1:0,true);}
   addEventListener('hashchange',fromHash);
   document.getElementById('prev').onclick=()=>{location.hash='step-'+cur;};
-  document.getElementById('next').onclick=()=>{location.hash='step-'+(cur+2);};
+  document.getElementById('next').onclick=()=>{if(cur<N-1)location.hash='step-'+(cur+2);else location.href='dopamine.html';};
   fromHash();
 
   // ---------- 내 생각 고르기 ----------
@@ -505,7 +460,7 @@ input[type=range]{width:100%;accent-color:var(--dis);height:24px}
       const v=picks[row.dataset.key];
       row.querySelectorAll('.pbtn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.val===v)));
     });
-    const n=document.getElementById('pnote');
+    const n=document.getElementById('pnote');if(!n){try{localStorage.setItem('osPick',JSON.stringify(picks));}catch(e){}return;}
     if(!picks.second){n.textContent=picks.first?'처음에는 '+NAME[picks.first]+'를 골랐어요.':'';}
     else if(!picks.first){n.textContent='지금은 '+NAME[picks.second]+'를 골랐어요.';}
     else if(picks.first===picks.second){n.textContent='처음과 같은 '+NAME[picks.second]+'. 오늘 본 연구 중 내 생각을 가장 잘 뒷받침하는 것은 무엇인가요?';}
@@ -601,31 +556,6 @@ input[type=range]{width:100%;accent-color:var(--dis);height:24px}
     ce.appendChild(d);
   });
 
-  // ---------- 정리 퀴즈 ----------
-  const Q=[
-    ["Lapidot-Lefler와 Barak의 실험에서 공격적 발언을 가장 크게 늘린 요인은?",["익명성","눈 맞춤 없음","비동시성"],1],
-    ["미국·덴마크 대규모 조사로 Bor와 Petersen(2022)이 내린 결론은?",["보통 사람도 인터넷에 들어오면 공격적으로 변한다","온라인에서 적대적인 사람은 오프라인에서도 적대적이고, 온라인에서 더 눈에 띌 뿐이다","실명제를 하면 악플이 사라진다"],1],
-    ["트롤링을 즐기는 사람과 가장 관련이 강했던 성격 특성은?",["일상적 가학성","외향성","성실성"],0],
-    ["한국 인터넷 실명제 시기 연구 결과로 알맞은 것은?",["악플이 거의 사라졌다","악플은 기대만큼 크게 줄지 않았고, 전체 참여도 함께 줄었다","악플이 오히려 크게 늘었다"],1],
-    ["슐러가 본 온라인 자아와 오프라인 자아의 관계는?",["온라인 자아가 진짜 자아다","오프라인 자아가 진짜 자아다","둘 다 상황에 따라 드러나는 자기의 한 측면이다"],2],
-    ["슐러가 제시한 온라인 탈억제 효과의 여섯 가지 원인에 해당하지 않는 것은?",["익명성","권위의 최소화","정보 과잉"],2],
-    ["Cheng 외(2017) 연구에서 평범한 사람도 공격적인 댓글을 쓸 가능성을 크게 높인 조건은?",["기분이 나쁘고, 앞선 댓글들이 이미 공격적일 때","글의 주제가 어렵고 낯설 때","아침 일찍 댓글을 쓸 때"],0],
-    ["독일 온라인 청원 플랫폼의 집단 비난 댓글을 분석한 Rost 외(2016)의 결과는?",["익명 사용자만 공격적이었다","실명 사용자가 오히려 더 공격적이었다","실명과 익명 사이에 아무 차이가 없었다"],1],
-    ["슐러가 말한 '온화한 탈억제'의 예로 알맞은 것은?",["익명 게시판에 연예인을 비난하는 글을 올린다","게임 채팅에서 상대 팀에게 욕을 한다","익명 상담 앱에 친구에게 못 한 고민을 솔직하게 털어놓는다"],2],
-    ["5단계 모형에서 공격적인 사람은 3%뿐인데 화면 속 공격적 댓글이 훨씬 많아 보이는 이유는?",["그들이 더 자주 쓰고, 알고리즘이 그 글을 더 멀리 퍼뜨리기 때문","인터넷에 들어오면 대부분의 사람이 공격적으로 변하기 때문","실명제가 폐지되어 모든 댓글이 공격적으로 바뀌었기 때문"],0]
-  ];
-  const qz=document.getElementById('quiz');let done=0,right=0;
-  Q.forEach((q,i)=>{
-    const d=document.createElement('div');d.className='qz';
-    d.innerHTML='<div class="qq">Q'+(i+1)+'. '+q[0]+'</div><div class="opts">'+q[1].map(o=>'<button type="button" class="opt">'+o+'</button>').join('')+'</div>';
-    const os=[...d.querySelectorAll('.opt')];let answered=false;
-    os.forEach((o,j)=>o.onclick=()=>{
-      if(answered)return;answered=true;done++;if(j===q[2])right++;
-      os.forEach((x,k)=>{x.classList.toggle('right',k===q[2]);if(k===j&&j!==q[2])x.classList.add('wrong');});
-      document.getElementById('score').textContent=Q.length+'문제 중 '+right+'개 정답'+(done===Q.length?' · 수고했어요':'');
-    });
-    qz.appendChild(d);
-  });
 })();
 </script>
 
